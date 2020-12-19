@@ -11,4 +11,4 @@ def run_following ():
     with open("./followings.txt", "w") as file :
         for usernames in client.followings("mhmwdhsyny767") :
             for username in usernames:
-                file.write(username + " ")
+                file.write(username + "-")
