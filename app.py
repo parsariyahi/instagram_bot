@@ -1,18 +1,9 @@
 from user import client
 from random import randint
 from time import sleep
+import followings
+import followers
 
-username = "funny.green.smile"
-password = "fun1382greensmile8990"
+followers.run_followers()
 
-client = client(username, password)
-
-
-for usernames in client.followings("pyclass_net") :
-    for username in usernames:
-        print(username)
-print("---------------------")
-for usernames in client.followers("pyclass_net") :
-    for username in usernames:
-        print(username)
-
+followings.run_following()
