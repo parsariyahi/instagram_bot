@@ -39,10 +39,9 @@ class client:
     def get_user_comments(self):
 
         pass
-
-    def get_post_comments(self):
-
-        pass
+    def get_post_comments(self, username):
+        user_id = self.user.username_info(username)["user"]["pk"]
+        return self.user.user_feed(user_id)
 
     def random_follow(self):
         

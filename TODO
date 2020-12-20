@@ -1,0 +1,4 @@
+now we have media_id 
+so now we need posts comments
+get post comments and then statrt checking if user have a comments in there or not fot get_user_comments
+if it have get that comment and show it 
