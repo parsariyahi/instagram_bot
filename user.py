@@ -18,7 +18,7 @@ class client:
             #followers_list.append(followers["users"][index]["username"])
         yield list(map(lambda user: user["username"] , followers["users"]))
 
-        while followers["next_max_id"] : 
+        while followers["next_max_id"] :
             sleep(5)
             followers = self.user.user_followers(user_id ,self.uuid, max_id=followers["next_max_id"])
             #for index in range(0, len(followers["users"])) :
