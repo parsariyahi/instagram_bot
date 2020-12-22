@@ -39,9 +39,13 @@ class client:
     def get_user_comments(self):
 
         pass
-    def get_post_comments(self, username):
+    def get_post_media_id(self, username):
         user_id = self.user.username_info(username)["user"]["pk"]
-        return self.user.user_feed(user_id)
+        post = self.user.user_feed(user_id)
+        yield list(map(lambda media_id : media_id['pk'] , post['items']))
+
+    def get_post_comments (self, media_id) :
+        return "bla bla bla"
 
     def random_follow(self):
         
