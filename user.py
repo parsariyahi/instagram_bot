@@ -42,10 +42,20 @@ class client:
     def get_post_media_id(self, username):
         user_id = self.user.username_info(username)["user"]["pk"]
         post = self.user.user_feed(user_id)
-        yield list(map(lambda media_id : media_id['pk'] , post['items']))
+        for id in list(map(lambda media_id : media_id['pk'] , post['items'])) :
+            yield id
 
     def get_post_comments (self, media_id) :
-        return "bla bla bla"
+        post = self.user.media_comments(media_id)
+        if "comments" in post :
+            comments = list(map(lambda comments : comments["text"], post["comments"]))
+            if comments :
+                for comment in comments :
+                    yield comment
+            else :
+                yield "there is no comments"
+        else :
+            yield "comments is closed"
 
     def random_follow(self):
         
