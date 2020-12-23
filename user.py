@@ -1,6 +1,7 @@
 from instagram_private_api import Client, ClientCompatPatch
 from random import randint
 from time import sleep
+import errors
 
 class client:
 
@@ -47,15 +48,15 @@ class client:
 
     def get_post_comments (self, media_id) :
         post = self.user.media_comments(media_id)
-        if "comments" in post :
+        try :
             comments = list(map(lambda comments : comments["text"], post["comments"]))
             if comments :
                 for comment in comments :
                     yield comment
             else :
-                yield "there is no comments"
-        else :
-            yield "comments is closed"
+                raise errors.NoComments
+        except KeyError :
+            raise errors.ClosedComments
 
     def random_follow(self):
         
