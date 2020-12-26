@@ -2,6 +2,7 @@ from instagram_private_api import Client, ClientCompatPatch
 from random import randint
 from time import sleep
 import errors
+from decorator import time
 
 class client:
 
