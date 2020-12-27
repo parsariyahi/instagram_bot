@@ -30,8 +30,8 @@ class client:
             yield list(map(lambda user: user["username"] , followers["users"]))
 
     def followings(self, username):
-       user_id = self.get_user_id(username)
-       followings = self.user.user_following(user_id ,self.uuid)
+       user_id = 
+       followings = self.user.user_following(self.get_user_id(username), self.uuid)
 
        yield list(map(lambda user: user["username"] , followings["users"]))
 
@@ -41,8 +41,7 @@ class client:
            yield list(map(lambda user: user["username"] , followings["users"]))
 
     def get_post_media_id(self, username):
-        user_id = self.get_user_id(username)
-        post = self.user.user_feed(user_id)
+        post = self.user.user_feed(self.get_user_id(username))
         for id in list(map(lambda media_id : media_id['pk'] , post['items'])) :
             yield id
 
