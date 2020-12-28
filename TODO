@@ -1,5 +1,5 @@
-now :
-    - we have each posts comments
-TODO :
-    - create a defination for chacking if a user have comment in this post ???
-    - for pagination check max_id like followers() def
+-compelete followings file 
+-use generator for otther functions
+-create .json file for followings and followers 
+-read follow ing , ers for follow_random_use 
+-create an API with flask and use this program as an API
