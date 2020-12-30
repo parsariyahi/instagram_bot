@@ -1,8 +1,8 @@
 from instagram_private_api import Client, ClientCompatPatch
-from random import randint
+from random import randint, choice
 from time import sleep
 import errors
-
+import decorator
 class client:
 
     def __init__(self, username ,password):
@@ -63,10 +63,20 @@ class client:
         userid_needle = self.get_user_id(uname_needle)
         media_id = self.get_last_post_media_id(uname_haystack)
         post = self.user.media_n_comments(media_id, n=100)
-
         users = list(map(lambda comments : comments["user_id"], post))
+
         return True if userid_needle in users else False
 
-    def random_follow(self):
+    def random_follow_from_followers(self, username, count=10):
+        dict_users = {}
+        for users in self.followers(username) :
+            dict_users.update(users)
+        for _ in range(count) :
+            to_follow = dict_users.popitem()
+            self.user.friendships_create(to_follow[0])
+            print(to_follow[1])
+
+    def random_follow_from_followings(self, username):
         pass
+
 
