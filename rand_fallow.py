@@ -4,8 +4,8 @@ from time import sleep
 import json
 from decorator import timer
 
-username = "funny.green.smile"
-password = "fun1382greensmile8990"
+username = "parsarh82"
+password = "parsa1981"
 
 client = cl(username, password)
 

@@ -73,18 +73,11 @@ class client:
             dict_users.update(users)
         for _ in range(count + 1) :
             to_follow = dict_users.popitem()
-            sleep(randint(2, 5))
+            sleep(randint(2, 5)
             if self.user.friendships_create(to_follow[0]) :
                 print(to_follow[1])
 
-    def random_follow_from_followings(self, username, count=10):
-        dict_users = {}
-        for users in self.followings(username) :
-            dict_users.update(users)
-        for _ in range(count + 1) :
-            to_follow = dict_users.popitem()
-            sleep(randint(2, 5))
-            if self.user.friendships_create(to_follow[0]) :
-                print(to_follow[1])
+    def random_follow_from_followings(self, username):
+        pass
 
 
