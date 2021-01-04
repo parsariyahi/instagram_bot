@@ -88,6 +88,6 @@ class client:
             if self.user.friendships_create(to_follow[0]) :
                 print(to_follow[1])
 
-    def json_parser(data) :
+    def json_parser(self, data) :
         return json.dumps(data)
 
