@@ -2,6 +2,7 @@ from instagram_private_api import Client, ClientCompatPatch
 from random import randint, choice
 from time import sleep
 import errors
+import json
 import decorator
 
 class client:
@@ -87,5 +88,6 @@ class client:
             if self.user.friendships_create(to_follow[0]) :
                 print(to_follow[1])
 
-
+    def json_parser(data) :
+        return json.dumps(data)
 
