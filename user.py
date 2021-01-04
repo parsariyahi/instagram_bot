@@ -3,8 +3,8 @@ from random import randint, choice
 from time import sleep
 import errors
 import decorator
-class client:
 
+class client:
     def __init__(self, username ,password):
         self.user = Client(username, password)
         self.uuid = self.user.generate_uuid()
@@ -67,24 +67,25 @@ class client:
 
         return True if userid_needle in users else False
 
-    def random_follow_from_followers(self, username, count=10):
+    def random_follow_n_from_followers(self, username, n=25):
         dict_users = {}
         for users in self.followers(username) :
             dict_users.update(users)
-        for _ in range(count + 1) :
+        for _ in range(n + 1) :
             to_follow = dict_users.popitem()
             sleep(randint(2, 5))
             if self.user.friendships_create(to_follow[0]) :
                 print(to_follow[1])
 
-    def random_follow_from_followings(self, username, count=10):
+    def random_follow_n_from_followings(self, username, n=25):
         dict_users = {}
         for users in self.followings(username) :
             dict_users.update(users)
-        for _ in range(count + 1) :
+        for _ in range(n + 1) :
             to_follow = dict_users.popitem()
             sleep(randint(2, 5))
             if self.user.friendships_create(to_follow[0]) :
                 print(to_follow[1])
+
 
 
