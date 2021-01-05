@@ -4,10 +4,11 @@ from time import sleep
 import errors
 import json
 import decorator
+import defs as df
 
 class client:
     def __init__(self, username ,password):
-        self.user = Client(username, password)
+        self.user = Client(username, password, timeout=30)
         self.uuid = self.user.generate_uuid()
         self.selfid = self.user.authenticated_user_id
 
@@ -80,14 +81,14 @@ class client:
 
     def random_follow_n_from_followings(self, username, n=25):
         dict_users = {}
+        final_dict = {}
         for users in self.followings(username) :
             dict_users.update(users)
         for _ in range(n + 1) :
             to_follow = dict_users.popitem()
             sleep(randint(2, 5))
             if self.user.friendships_create(to_follow[0]) :
-                print(to_follow[1])
+                final_dict.update(to_follow[0], to_follow[1])
 
-    def json_parser(self, data) :
-        return json.dumps(data)
+            return json.dumps(final_dict)
 
