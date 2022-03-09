@@ -3,8 +3,8 @@ from random import randint
 from time import sleep
 
 def run_following ():
-    username = "funny.green.smile"
-    password = "fun1382greensmile8990"
+    username = "your username"
+    password = "your pass"
 
     client = cl(username, password)
 
