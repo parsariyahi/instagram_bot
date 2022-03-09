@@ -6,8 +6,8 @@ from decorator import timer
 
 @timer
 def run_followers () :
-    username = "funny.green.smile"
-    password = "fun1382greensmile8990"
+    username = "your username"
+    password = "your pass"
 
     client = cl(username, password)
     js = {}
